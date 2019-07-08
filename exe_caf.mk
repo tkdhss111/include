@@ -1,11 +1,11 @@
-# Last updated: 2019-07-06 08:59:42.
+# Last updated: 2019-07-06 10:12:41.
 #=============================================================                           
 # Common makefile definitions for Fortran
 #
 # Created by: Hisashi Takeda, Ph.D. 2019-02-05
 #=============================================================
 
-FC            := gfortran-7
+FC            := gfortran-9
 DIR_PROJS     := /home/eric/1_Projects/
 DIR_TOOLS     := /home/eric/2_Tools/
 DIR_DATA      := /home/eric/3_Data/

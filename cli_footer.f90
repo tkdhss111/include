@@ -4,7 +4,7 @@
 ! Created by: Hisashi Takeda, Ph.D. 2019-01-19
 !==================================================================
 
-subroutine get_character (str, i_arg)
+module subroutine get_character (str, i_arg)
 
   character(*), intent(inout) :: str
   integer     , intent(inout) :: i_arg
@@ -17,7 +17,7 @@ subroutine get_character (str, i_arg)
 
 end subroutine
 
-subroutine get_integer (ival, i_arg)
+module subroutine get_integer (ival, i_arg)
 
   integer, intent(inout) :: ival
   integer, intent(inout) :: i_arg
@@ -30,7 +30,7 @@ subroutine get_integer (ival, i_arg)
 
 end subroutine
 
-subroutine get_real (rval, i_arg)
+module subroutine get_real (rval, i_arg)
 
   real(8), intent(inout) :: rval
   integer, intent(inout) :: i_arg
@@ -43,7 +43,7 @@ subroutine get_real (rval, i_arg)
 
 end subroutine
 
-subroutine get_logical (ox, i_arg)
+module subroutine get_logical (ox, i_arg)
 
   logical, intent(inout) :: ox
   integer, intent(inout) :: i_arg

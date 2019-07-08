@@ -4,7 +4,7 @@
 # Created by: Hisashi Takeda, Ph.D. 2019-02-05
 #=============================================================
 
-FC            := gfortran-7
+FC            := gfortran-9
 DIR_PROJS     := /home/eric/1_Projects/
 DIR_TOOLS     := /home/eric/2_Tools/
 DIR_DATA      := /home/eric/3_Data/
