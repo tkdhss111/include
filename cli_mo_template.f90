@@ -1,6 +1,6 @@
 module cli_mo
 
-  include '/home/eric/1_Projects/include/cli_header.f90'
+  include '/home/jma/1_Projects/include/cli_header.f90'
 
 contains
 
@@ -84,7 +84,7 @@ contains
 
   end subroutine get_args
 
-  include '/home/eric/1_Projects/include/cli_footer.f90'
+  include '/home/jma/1_Projects/include/cli_footer.f90'
 
 end module
 

@@ -1,4 +1,4 @@
-# Last updated: 2019-07-06 10:12:41.
+# Last updated: 2019-07-08 12:00:02.
 #=============================================================                           
 # Common makefile definitions for Fortran
 #
@@ -6,9 +6,9 @@
 #=============================================================
 
 FC            := gfortran-9
-DIR_PROJS     := /home/eric/1_Projects/
-DIR_TOOLS     := /home/eric/2_Tools/
-DIR_DATA      := /home/eric/3_Data/
+DIR_PROJS     := /home/jma/1_Projects/
+DIR_TOOLS     := /home/jma/2_Tools/
+DIR_DATA      := /home/jma/3_Data/
 DIR_EXE_INS   := /usr/bin/fortran/$(FC)/
 DIR_EXE_RLS   := $(DIR_PROJS)$(DIR_PROJ)bin/Release/
 DIR_EXE_DBG   := $(DIR_PROJS)$(DIR_PROJ)bin/Debug/

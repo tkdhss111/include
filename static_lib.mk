@@ -5,9 +5,9 @@
 #=============================================================
 
 FC            := gfortran-9
-DIR_PROJS     := /home/eric/1_Projects/
-DIR_TOOLS     := /home/eric/2_Tools/
-DIR_DATA      := /home/eric/3_Data/
+DIR_PROJS     := /home/jma/1_Projects/
+DIR_TOOLS     := /home/jma/2_Tools/
+DIR_DATA      := /home/jma/3_Data/
 DIRS_INC      := $(DIR_PROJS)$(DIR_PROJ)lib/Release/
 DIR_LIB_INS   := /usr/lib/fortran/$(FC)/
 DIR_LIB_RLS   := $(DIR_PROJS)$(DIR_PROJ)lib/Release/
