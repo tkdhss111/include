@@ -1,4 +1,4 @@
-# Last updated: 2019-07-08 12:00:02.
+# Last updated: 2019-07-08 14:34:56.
 #=============================================================                           
 # Common makefile definitions for Fortran
 #
@@ -77,8 +77,8 @@ install:
 	$(CP) $(DIR_EXE_RLS)$(EXE) $(DIR_EXE_INS)$(DIR_PROJ)$(EXE)
 	$(RM) /usr/bin/taketa_$(EXE)
 	$(LN) $(DIR_EXE_INS)$(DIR_PROJ)$(EXE) /usr/bin/taketa_$(EXE)
-	chown eric:eric $(DIR_EXE_INS)$(DIR_PROJ)$(EXE)
-	chown eric:eric /usr/bin/taketa_$(EXE)
+	chown jma:jma $(DIR_EXE_INS)$(DIR_PROJ)$(EXE)
+	chown jma:jma /usr/bin/taketa_$(EXE)
 
 uninstall:
 	$(RM) $(DIR_EXE_INS)$(DIR_PROJ)$(EXE)
