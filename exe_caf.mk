@@ -1,4 +1,4 @@
-# Last updated: 2019-07-08 14:34:56.
+# Last updated: 2019-07-09 16:36:56.
 #=============================================================                           
 # Common makefile definitions for Fortran
 #
@@ -28,7 +28,7 @@ LN            := ln -s
 RM            := rm -f
 MKDIR         := @mkdir -p
 LD            := ar -rv
-CFLAGS        := -cpp -ffree-line-length-none -fopenmp -fcoarray=lib
+CFLAGS        := -cpp -ffree-line-length-none -fopenmp -fdec-math -fcoarray=lib
 RFLAGS        := -O3 -march=native -Drelease $(addprefix -I, $(DIRS_INC_RLS)) $(CFLAGS)
 DFLAGS        := -g -Wall -Wextra -fcheck=all -fcheck=bounds -Ddebug $(addprefix -I, $(DIRS_INC_DBG)) $(CFLAGS)
 LFLAGS        := -static -s

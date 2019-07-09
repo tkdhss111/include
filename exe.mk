@@ -27,7 +27,7 @@ LN            := ln -s
 RM            := rm -f
 MKDIR         := @mkdir -p
 LD            := ar -rv
-CFLAGS        := -cpp -ffree-line-length-none -fopenmp
+CFLAGS        := -cpp -ffree-line-length-none -fopenmp -fdec-math
 RFLAGS        := -O3 -march=native -Drelease $(addprefix -I, $(DIRS_INC_RLS)) $(CFLAGS)
 DFLAGS        := -g -Wall -Wextra -fcheck=all -fcheck=bounds -Ddebug $(addprefix -I, $(DIRS_INC_DBG)) $(CFLAGS)
 LFLAGS        := -static -s

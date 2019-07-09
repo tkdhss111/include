@@ -25,7 +25,7 @@ CP            := cp
 RM            := rm -f
 MKDIR         := mkdir -p
 LD            := ar -rv
-CFLAGS        := -cpp -ffree-line-length-none -fopenmp $(addprefix -I, $(DIRS_INC))
+CFLAGS        := -cpp -ffree-line-length-none -fopenmp -fdec-math $(addprefix -I, $(DIRS_INC))
 RFLAGS        := -O3 -march=native -Drelease $(CFLAGS)
 DFLAGS        := -g -Wall -Wextra -fcheck=all -fcheck=bounds -Ddebug $(CFLAGS)
 LFLAGS        := -static -s
