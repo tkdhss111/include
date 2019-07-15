@@ -45,7 +45,7 @@ release: $(PATH_OBJS_RLS)
 	$(LD)s $(PATH_LIB_RLS) $(PATH_OBJS_RLS)
 	$(RM) $(DIR_LIB_RLS)*.o
 
-$(DIR_OBJ_RLS)%.o: %.f90 $(addprefix $(DIR_OBJ_DBG), file_mo.o string_helpers.o tb_mo.o)
+$(DIR_OBJ_RLS)%.o: %.f90 $(addprefix $(DIR_OBJ_RLS), file_mo.o string_helpers.o tb_mo.o)
 	$(FC) $(RFLAGS) -J$(DIR_OBJ_RLS) -o $@ -c $<
 
 debug: $(PATH_OBJS_DBG)
