@@ -24,7 +24,7 @@ PATH_OBJS_DBG := $(addprefix $(DIR_OBJ_DBG), $(OBJS))
 CP            := cp
 RM            := rm -f
 MKDIR         := mkdir -p
-LD            := ar -rv
+AR            := ar -rv
 CFLAGS        := -cpp -ffree-line-length-none -fopenmp -fdec-math $(addprefix -I, $(DIRS_INC))
 RFLAGS        := -O3 -march=native -Drelease $(CFLAGS)
 DFLAGS        := -g -Wall -Wextra -fcheck=all -fcheck=bounds -Ddebug $(CFLAGS)
@@ -35,21 +35,21 @@ LFLAGS        := -static -s
 all : prep release 
 
 run: $(PATH_OBJS_RLS)
-	$(LD)s $(PATH_LIB_RLS) $(PATH_OBJS_RLS)
+	$(AR)s $(PATH_LIB_RLS) $(PATH_OBJS_RLS)
 	$(RM) $(DIR_LIB_RLS)*.o
 
 debugrun: $(PATH_OBJS_DBG)
-	$(LD)s $(PATH_LIB_DBG) $(PATH_OBJS_DBG)
+	$(AR)s $(PATH_LIB_DBG) $(PATH_OBJS_DBG)
 
 release: $(PATH_OBJS_RLS)
-	$(LD)s $(PATH_LIB_RLS) $(PATH_OBJS_RLS)
+	$(AR)s $(PATH_LIB_RLS) $(PATH_OBJS_RLS)
 	$(RM) $(DIR_LIB_RLS)*.o
 
 $(DIR_OBJ_RLS)%.o: %.f90 $(addprefix $(DIR_OBJ_RLS), file_mo.o string_helpers.o tb_mo.o)
 	$(FC) $(RFLAGS) -J$(DIR_OBJ_RLS) -o $@ -c $<
 
 debug: $(PATH_OBJS_DBG)
-	$(LD)s $(PATH_LIB_DBG) $(PATH_OBJS_DBG)
+	$(AR)s $(PATH_LIB_DBG) $(PATH_OBJS_DBG)
 
 $(DIR_OBJ_DBG)%.o: %.f90 $(addprefix $(DIR_OBJ_DBG), file_mo.o string_helpers.o tb_mo.o)
 	$(FC) $(DFLAGS) -J$(DIR_OBJ_DBG) -o $@ -c $< 

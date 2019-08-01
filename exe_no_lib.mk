@@ -22,7 +22,7 @@ CP            := cp
 LN            := ln -s
 RM            := rm -f
 MKDIR         := @mkdir -p
-LD            := ar -rv
+AR            := ar -rv
 CFLAGS        := -cpp -ffree-line-length-none -fopenmp -fdec-math 
 RFLAGS        := -O3 -march=native -Drelease $(CFLAGS)
 DFLAGS        := -g -Wall -Wextra -fcheck=all -fcheck=bounds -Ddebug $(CFLAGS)

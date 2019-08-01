@@ -15,8 +15,8 @@ DIR_OBJ_RLS   := $(DIR_PROJS)$(DIR_PROJ)obj/Release/$(EXE)/# To avoid main.o con
 DIR_OBJ_DBG   := $(DIR_PROJS)$(DIR_PROJ)obj/Debug/$(EXE)/
 DIRS_INC_RLS  := $(DIR_PROJS)utils/lib/Release/
 DIRS_INC_DBG  := $(DIR_PROJS)utils/lib/Debug/
-LIBS_RLS      := $(DIR_PROJS)utils/lib/Release/libutils.a 
-LIBS_DBG      := $(DIR_PROJS)utils/lib/Debug/libutils.a 
+LIBS_RLS      := $(addprefix $(DIR_PROJS)utils/lib/Release/, libutils.a liblapack95_blas95.a)
+LIBS_DBG      := $(addprefix $(DIR_PROJS)utils/lib/Debug/, libutils.a liblapack95_blas95.a)
 OBJS          := $(SRCS:.f90=.o)
 PATH_EXE_RLS  := $(addprefix $(DIR_EXE_RLS), $(EXE))
 PATH_EXE_DBG  := $(addprefix $(DIR_EXE_DBG), $(EXE))
@@ -26,7 +26,7 @@ CP            := cp
 LN            := ln -s
 RM            := rm -f
 MKDIR         := @mkdir -p
-LD            := ar -rv
+AR            := ar -rv
 CFLAGS        := -cpp -ffree-line-length-none -fopenmp -fdec-math
 RFLAGS        := -O3 -march=native -Drelease $(addprefix -I, $(DIRS_INC_RLS)) $(CFLAGS)
 DFLAGS        := -g -Wall -Wextra -fcheck=all -fcheck=bounds -Ddebug $(addprefix -I, $(DIRS_INC_DBG)) $(CFLAGS)
