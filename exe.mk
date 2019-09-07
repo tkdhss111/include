@@ -14,9 +14,13 @@ DIR_EXE_DBG   := $(DIR_PROJS)$(DIR_PROJ)bin/Debug/
 DIR_OBJ_RLS   := $(DIR_PROJS)$(DIR_PROJ)obj/Release/$(EXE)/# To avoid main.o conflictions, use separated folders.
 DIR_OBJ_DBG   := $(DIR_PROJS)$(DIR_PROJ)obj/Debug/$(EXE)/
 DIRS_INC_RLS  := $(DIR_PROJS)utils/lib/Release/
+DIRS_INC_RLS  += /usr/local/dislin/gf/real64/
 DIRS_INC_DBG  := $(DIR_PROJS)utils/lib/Debug/
+DIRS_INC_DBG  += /usr/local/dislin/gf/real64/
 LIBS_RLS      := $(addprefix $(DIR_PROJS)utils/lib/Release/, libutils.a liblapack95_blas95.a)
+LIBS_RLS      += -L/usr/local/dislin/ -ldislin_d
 LIBS_DBG      := $(addprefix $(DIR_PROJS)utils/lib/Debug/, libutils.a liblapack95_blas95.a)
+LIBS_DBG      += -L/usr/local/dislin/ -ldislin_d
 OBJS          := $(SRCS:.f90=.o)
 PATH_EXE_RLS  := $(addprefix $(DIR_EXE_RLS), $(EXE))
 PATH_EXE_DBG  := $(addprefix $(DIR_EXE_DBG), $(EXE))
@@ -40,13 +44,13 @@ release: $(PATH_OBJS_RLS)
 	$(FC) $(RFLAGS) -s -o $(PATH_EXE_RLS) $(PATH_OBJS_RLS) $(LIBS_RLS)
 
 $(DIR_OBJ_RLS)%.o: %.f90
-	$(FC) $(RFLAGS) -J $(DIR_OBJ_RLS) -o $@ -c $<
+	$(FC) $(RFLAGS) -J$(DIR_OBJ_RLS) -o $@ -c $<
 
 debug: $(PATH_OBJS_DBG)
 	$(FC) $(DFLAGS) -o $(PATH_EXE_DBG) $(PATH_OBJS_DBG) $(LIBS_DBG)
 
 $(DIR_OBJ_DBG)%.o: %.f90
-	$(FC) $(DFLAGS) -J $(DIR_OBJ_DBG) -o $@ -c $< 
+	$(FC) $(DFLAGS) -J$(DIR_OBJ_DBG) -o $@ -c $< 
 
 debugrun: prep debug
 	$(DIR_PROJS)$(DIR_PROJ)bin/Debug/$(EXE)
