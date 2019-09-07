@@ -16,10 +16,8 @@ DIR_OBJ_RLS   := $(DIR_PROJS)$(DIR_PROJ)obj/Release/$(EXE)/# To avoid main.o con
 DIR_OBJ_DBG   := $(DIR_PROJS)$(DIR_PROJ)obj/Debug/$(EXE)/
 DIRS_INC_RLS  := $(DIR_PROJS)utils/lib/Release/
 DIRS_INC_DBG  := $(DIR_PROJS)utils/lib/Debug/
-#LIBS_RLS      := $(DIR_PROJS)utils/lib/Release/libutils.a -lcaf_mpi
 LIBS_RLS      := $(DIR_PROJS)utils/lib/Release/libutils.a
 LIBS_RLS      += $(DIR_PROJS)utils/lib/Release/liblapack95_blas95.a
-#LIBS_DBG      := $(DIR_PROJS)utils/lib/Debug/libutils.a -lcaf_mpi
 LIBS_DBG      := $(DIR_PROJS)utils/lib/Debug/libutils.a
 LIBS_DBG      += $(DIR_PROJS)utils/lib/Release/liblapack95_blas95.a
 OBJS          := $(SRCS:.f90=.o)
@@ -32,7 +30,7 @@ LN            := ln -s
 RM            := rm -f
 MKDIR         := @mkdir -p
 AR            := ar -rv
-CFLAGS        := -cpp -ffree-line-length-none -fopenmp -fdec-math -fcoarray=lib -fexternal-blas
+CFLAGS        := -cpp -ffree-line-length-none -fopenmp -fdec-math -fcoarray=lib
 RFLAGS        := -O3 -march=native -Drelease $(addprefix -I, $(DIRS_INC_RLS)) $(CFLAGS)
 DFLAGS        := -g -Wall -Wextra -fcheck=all -fcheck=bounds -Ddebug $(addprefix -I, $(DIRS_INC_DBG)) $(CFLAGS)
 LFLAGS        := -static -s
