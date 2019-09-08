@@ -4,22 +4,26 @@
 # Created by: Hisashi Takeda, Ph.D. 2019-02-05
 #=============================================================
 
-FC            := gfortran-9
+#FC            := gfortran-9
+FC            := caf
 DIR_PROJS     := /home/jma/1_Projects/
 DIR_TOOLS     := /home/jma/2_Tools/
 DIR_DATA      := /home/jma/3_Data/
+DIR_MKL       := /opt/intel/mkl/
 DIR_EXE_INS   := /usr/bin/fortran/$(FC)/
 DIR_EXE_RLS   := $(DIR_PROJS)$(DIR_PROJ)bin/Release/
 DIR_EXE_DBG   := $(DIR_PROJS)$(DIR_PROJ)bin/Debug/
 DIR_OBJ_RLS   := $(DIR_PROJS)$(DIR_PROJ)obj/Release/$(EXE)/# To avoid main.o conflictions, use separated folders.
 DIR_OBJ_DBG   := $(DIR_PROJS)$(DIR_PROJ)obj/Debug/$(EXE)/
 DIRS_INC_RLS  := $(DIR_PROJS)utils/lib/Release/
+DIRS_INC_RLS  += $(addprefix $(DIR_MKL), include/intel64/lp64 include)
 DIRS_INC_RLS  += /usr/local/dislin/gf/real64/
 DIRS_INC_DBG  := $(DIR_PROJS)utils/lib/Debug/
 DIRS_INC_DBG  += /usr/local/dislin/gf/real64/
-LIBS_RLS      := $(addprefix $(DIR_PROJS)utils/lib/Release/, libutils.a liblapack95_blas95.a)
+LIBS_RLS      := $(DIR_PROJS)utils/lib/Release/libutils.a
+LIBS_RLS      += $(addprefix ${DIR_MKL}/lib/intel64/, libmkl_blas95_lp64.a libmkl_lapack95_lp64.a libmkl_gf_lp64.a libmkl_gnu_thread.a libmkl_core.a) -Wl,--start-group -Wl,--end-group -lgomp -lpthread -lm -ldl 
 LIBS_RLS      += -L/usr/local/dislin/ -ldislin_d
-LIBS_DBG      := $(addprefix $(DIR_PROJS)utils/lib/Debug/, libutils.a liblapack95_blas95.a)
+LIBS_DBG      := $(DIR_PROJS)utils/lib/Debug/libutils.a
 LIBS_DBG      += -L/usr/local/dislin/ -ldislin_d
 OBJS          := $(SRCS:.f90=.o)
 PATH_EXE_RLS  := $(addprefix $(DIR_EXE_RLS), $(EXE))
@@ -32,6 +36,8 @@ RM            := rm -f
 MKDIR         := @mkdir -p
 AR            := ar -rv
 CFLAGS        := -cpp -ffree-line-length-none -fopenmp -fdec-math
+CFLAGS        += -fcoarray=lib
+#CFLAGS        += -fexternal-blas
 RFLAGS        := -O3 -march=native -Drelease $(addprefix -I, $(DIRS_INC_RLS)) $(CFLAGS)
 DFLAGS        := -g -Wall -Wextra -fcheck=all -fcheck=bounds -Ddebug $(addprefix -I, $(DIRS_INC_DBG)) $(CFLAGS)
 LFLAGS        := -static -s
