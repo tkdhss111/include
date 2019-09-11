@@ -8,8 +8,6 @@
 #=============================================================
 
 include ~/1_Projects/include/base.mk
-include ~/1_Projects/include/caf.mk
 include ~/1_Projects/include/utils.mk
 include ~/1_Projects/include/mkl.mk
-include ~/1_Projects/include/dislin.mk
 include ~/1_Projects/include/main.mk
