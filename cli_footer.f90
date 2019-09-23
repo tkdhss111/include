@@ -13,7 +13,7 @@ module subroutine get_character (str, i_arg)
   call get_command_argument (i_arg, arg, status = status)
   if (status /= 0) print *, 'Error', status, 'on argument', i_arg
   str = trim(arg)
-  print '(i2, a)', i_arg / 2, ': '//trim(str)
+  print '(a, i2, a)', 'Arg', i_arg / 2, ': '//trim(str)
 
 end subroutine
 
@@ -26,7 +26,7 @@ module subroutine get_integer (ival, i_arg)
   call get_command_argument (i_arg, arg, status = status)
   if (status /= 0) print *, 'Error', status, 'on argument', i_arg
   read (arg, *) ival
-  print '(i2, a, i0)', i_arg / 2, ': ', ival
+  print '(a, i2, a, i0)', 'Arg', i_arg / 2, ': ', ival
 
 end subroutine
 
@@ -39,7 +39,7 @@ module subroutine get_real (rval, i_arg)
   call get_command_argument (i_arg, arg, status = status)
   if (status /= 0) print *, 'Error', status, 'on argument', i_arg
   read (arg, *) rval
-  print '(i2, a, g0)', i_arg / 2, ': ', rval
+  print '(a, i2, a, g0)', 'Arg', i_arg / 2, ': ', rval
 
 end subroutine
 
@@ -52,7 +52,7 @@ module subroutine get_logical (ox, i_arg)
   call get_command_argument (i_arg, arg, status = status)
   if (status /= 0) print *, 'Error', status, 'on argument', i_arg
   read (arg, '(l)') ox
-  print '(i2, a, l)', i_arg / 2, ': ', ox
+  print '(a, i2, a, l)', 'Arg', i_arg / 2, ': ', ox
 
 end subroutine
 
@@ -88,13 +88,11 @@ subroutine print_version (this, date_time)
   class(cmd_ty), intent(in) :: this
   character(*),  intent(in) :: date_time
 
-  print *, repeat('=', 80)
-  print *, trim(this%title)
-  print *, 'Executable file: ', trim(this%exe)
-  print *, 'Version ',     trim(this%version)
-  print *, 'Created by ',  trim(this%author)
-  print *, date_time(1:4)//' '//trim(this%copyright)
-  print *, repeat('=', 80)
+  print '(a)', 'Executable file: ', trim(this%exe)
+  print '(a)', 'Version ',     trim(this%version)
+  print '(a)', 'Created by ',  trim(this%author)
+  print '(a)', date_time(1:4)//' '//trim(this%copyright)
+  print '(a)', repeat('=', 80)
 
   stop
 
