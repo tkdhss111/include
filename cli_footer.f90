@@ -88,9 +88,9 @@ subroutine print_version (this, date_time)
   class(cmd_ty), intent(in) :: this
   character(*),  intent(in) :: date_time
 
-  print '(a)', 'Executable file: ', trim(this%exe)
-  print '(a)', 'Version ',     trim(this%version)
-  print '(a)', 'Created by ',  trim(this%author)
+  print '(a)', 'Executable file: '//trim(this%exe)
+  print '(a)', 'Version '//trim(this%version)
+  print '(a)', 'Created by '// trim(this%author)
   print '(a)', date_time(1:4)//' '//trim(this%copyright)
   print '(a)', repeat('=', 80)
 
