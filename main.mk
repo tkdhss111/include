@@ -1,5 +1,5 @@
-RFLAGS += $(addprefix -I, $(DIRS_INC_RLS)) $(CFLAGS)
-DFLAGS += $(addprefix -I, $(DIRS_INC_DBG)) $(CFLAGS)
+RFLAGS += $(CFLAGS) $(addprefix -I, $(DIRS_INC_RLS))
+DFLAGS += $(CFLAGS) $(addprefix -I, $(DIRS_INC_DBG))
 
 .PHONY : all run debugrun release debug prep clean extra_clean install uninstall
 
@@ -15,7 +15,7 @@ debug: $(PATH_OBJS_DBG)
 	$(FC) $(DFLAGS) -o $(PATH_BIN_DBG) $(PATH_OBJS_DBG) $(LIBS_DBG)
 
 $(DIR_OBJ_DBG)%.o: %.f90
-	$(FC) $(DFLAGS) -J$(DIR_OBJ_DBG) -o $@ -c $< 
+	$(FC) $(DFLAGS) -J$(DIR_OBJ_DBG) -o $@ -c $<
 
 debugrun: prep debug
 	$(DIR_PROJS)$(DIR_PROJ)bin/Debug/$(NAME)
