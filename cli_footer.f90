@@ -75,9 +75,16 @@ subroutine print_help (this)
   class(cmd_ty), intent(in) :: this
   integer j
 
+  print '(a)', ''
+  print '(a)', repeat('=', 80)
+  print '(a)', trim(cmd%title)
+  print '(a)', repeat('-', 80)
+
   do j = 1, this%n_usage
     print *, trim(this%usage(j))
   end do
+
+  print '(a)', repeat('=', 80)
 
   stop
 

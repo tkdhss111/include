@@ -6,48 +6,48 @@ DFLAGS += $(addprefix -I, $(DIRS_INC_DBG)) $(CFLAGS)
 all: prep release 
 
 release: $(PATH_OBJS_RLS)
-	$(FC) $(RFLAGS) -s -o $(PATH_EXE_RLS) $(PATH_OBJS_RLS) $(LIBS_RLS)
+	$(FC) $(RFLAGS) -s -o $(PATH_BIN_RLS) $(PATH_OBJS_RLS) $(LIBS_RLS)
 
 $(DIR_OBJ_RLS)%.o: %.f90
 	$(FC) $(RFLAGS) -J$(DIR_OBJ_RLS) -o $@ -c $<
 
 debug: $(PATH_OBJS_DBG)
-	$(FC) $(DFLAGS) -o $(PATH_EXE_DBG) $(PATH_OBJS_DBG) $(LIBS_DBG)
+	$(FC) $(DFLAGS) -o $(PATH_BIN_DBG) $(PATH_OBJS_DBG) $(LIBS_DBG)
 
 $(DIR_OBJ_DBG)%.o: %.f90
 	$(FC) $(DFLAGS) -J$(DIR_OBJ_DBG) -o $@ -c $< 
 
 debugrun: prep debug
-	$(DIR_PROJS)$(DIR_PROJ)bin/Debug/$(EXE)
+	$(DIR_PROJS)$(DIR_PROJ)bin/Debug/$(NAME)
 
 prep:
-	$(MKDIR) $(DIR_OBJ_RLS) $(DIR_OBJ_DBG) $(DIR_EXE_RLS) $(DIR_EXE_DBG)
+	$(MKDIR) $(DIR_OBJ_RLS) $(DIR_OBJ_DBG) $(DIR_BIN_RLS) $(DIR_BIN_DBG)
 
 clean:
-	$(RM) $(PATH_EXE_RLS)
+	$(RM) $(PATH_BIN_RLS)
 	$(RM) $(DIR_OBJ_RLS)*.*
-	$(RM) $(PATH_EXE_DBG)
+	$(RM) $(PATH_BIN_DBG)
 	$(RM) $(DIR_OBJ_DBG)*.*
 
 clean_release:
-	$(RM) $(PATH_EXE_RLS)
+	$(RM) $(PATH_BIN_RLS)
 	$(RM) $(DIR_OBJ_RLS)*.*
 
 clean_debug:
-	$(RM) $(PATH_EXE_DBG)
+	$(RM) $(PATH_BIN_DBG)
 	$(RM) $(DIR_OBJ_DBG)*.*
 
 extra_clean:
-	$(RM)r $(PATH_EXE_RLS) $(PATH_EXE_DBG) $(DIR_OBJ_RLS) $(DIR_OBJ_DBG)
+	$(RM)r $(PATH_BIN_RLS) $(PATH_BIN_DBG) $(DIR_OBJ_RLS) $(DIR_OBJ_DBG)
 
 install:
-	$(MKDIR) $(DIR_EXE_INS)$(DIR_PROJ)
-	$(CP) $(DIR_EXE_RLS)$(EXE) $(DIR_EXE_INS)$(DIR_PROJ)$(EXE)
-	$(RM) /usr/bin/taketa_$(EXE)
-	$(LN) $(DIR_EXE_INS)$(DIR_PROJ)$(EXE) /usr/bin/taketa_$(EXE)
-	chown jma:jma $(DIR_EXE_INS)$(DIR_PROJ)$(EXE)
-	chown jma:jma /usr/bin/taketa_$(EXE)
+	$(MKDIR) $(DIR_BIN_INS)$(DIR_PROJ)
+	$(CP) $(DIR_BIN_RLS)$(NAME) $(DIR_BIN_INS)$(DIR_PROJ)$(NAME)
+	$(RM) /usr/bin/taketa_$(NAME)
+	$(LN) $(DIR_BIN_INS)$(DIR_PROJ)$(NAME) /usr/bin/taketa_$(NAME)
+	chown jma:jma $(DIR_BIN_INS)$(DIR_PROJ)$(NAME)
+	chown jma:jma /usr/bin/taketa_$(NAME)
 
 uninstall:
-	$(RM) $(DIR_EXE_INS)$(DIR_PROJ)$(EXE)
-	$(RM) /usr/bin/taketa_$(EXE)
+	$(RM) $(DIR_BIN_INS)$(DIR_PROJ)$(NAME)
+	$(RM) /usr/bin/taketa_$(NAME)
