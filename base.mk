@@ -13,8 +13,6 @@ DIR_OBJ_RLS   := $(DIR_PROJS)$(DIR_PROJ)obj/Release/$(NAME)/
 DIR_OBJ_DBG   := $(DIR_PROJS)$(DIR_PROJ)obj/Debug/$(NAME)/
 
 OBJS          := $(SRCS:.f90=.o)
-LIBS_RLS      := 
-LIBS_DBG      := 
 
 PATH_BIN_RLS  := $(addprefix $(DIR_BIN_RLS), $(NAME))
 PATH_BIN_DBG  := $(addprefix $(DIR_BIN_DBG), $(NAME))
