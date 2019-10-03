@@ -24,7 +24,7 @@ LN            := ln -s
 RM            := rm -f
 MKDIR         := @mkdir -p
 AR            := ar -rv
-CFLAGS        := -cpp -ffree-line-length-none -fopenmp -fdec-math
+CFLAGS        := -cpp -ffree-line-length-none -fopenmp -fdec-math -mcmodel=large
 RFLAGS        := -O3 -march=native -Drelease
 DFLAGS        := -g -Wall -Wextra -fcheck=all -fcheck=bounds -Ddebug
 LFLAGS        := -static -s
