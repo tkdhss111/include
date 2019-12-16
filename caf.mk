@@ -1,2 +1,2 @@
 FC := caf
-CFLAGS += -fcoarray=lib
+CFLAGS += -fcoarray=lib -Dcaf
