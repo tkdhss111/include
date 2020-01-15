@@ -1,5 +1,4 @@
-FC            := gfortran-9
-
+FC            := caf 
 DIR_PROJS     := /home/jma/1_Projects/
 DIR_TOOLS     := /home/jma/2_Tools/
 DIR_DATA      := /home/jma/3_Data/
@@ -24,7 +23,7 @@ LN            := ln -s
 RM            := rm -f
 MKDIR         := @mkdir -p
 AR            := ar -rv
-CFLAGS        := -cpp -ffree-line-length-none -fopenmp -fdec-math -mcmodel=large
+CFLAGS        := -cpp -ffree-line-length-none -fopenmp -fdec-math -mcmodel=large -pthread
 RFLAGS        := -O3 -march=native -Drelease
 DFLAGS        := -g -Wall -Wextra -fcheck=all -fcheck=bounds -Ddebug
 LFLAGS        := -static -s
