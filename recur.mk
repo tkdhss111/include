@@ -23,3 +23,9 @@ install:
 	do \
 		make install --directory=$$d; \
 	done
+
+uninstall:
+	for d in $(DIRS); \
+	do \
+		make uninstall --directory=$$d; \
+	done

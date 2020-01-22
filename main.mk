@@ -50,4 +50,5 @@ install:
 
 uninstall:
 	$(RM) $(DIR_BIN_INS)$(DIR_PROJ)$(NAME)
+	find $(DIR_BIN_INS) -type d -empty -delete
 	$(RM) /usr/bin/$(USR)_$(NAME)
