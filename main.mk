@@ -43,11 +43,11 @@ extra_clean:
 install:
 	$(MKDIR) $(DIR_BIN_INS)$(DIR_PROJ)
 	$(CP) $(DIR_BIN_RLS)$(NAME) $(DIR_BIN_INS)$(DIR_PROJ)$(NAME)
-	$(RM) /usr/bin/taketa_$(NAME)
-	$(LN) $(DIR_BIN_INS)$(DIR_PROJ)$(NAME) /usr/bin/taketa_$(NAME)
-	chown jma:jma $(DIR_BIN_INS)$(DIR_PROJ)$(NAME)
-	chown jma:jma /usr/bin/taketa_$(NAME)
+	$(RM) /usr/bin/$(USR)_$(NAME)
+	$(LN) $(DIR_BIN_INS)$(DIR_PROJ)$(NAME) /usr/bin/$(USR)_$(NAME)
+	chown $(USR):$(USR) $(DIR_BIN_INS)$(DIR_PROJ)$(NAME)
+	chown $(USR):$(USR) /usr/bin/$(USR)_$(NAME)
 
 uninstall:
 	$(RM) $(DIR_BIN_INS)$(DIR_PROJ)$(NAME)
-	$(RM) /usr/bin/taketa_$(NAME)
+	$(RM) /usr/bin/$(USR)_$(NAME)

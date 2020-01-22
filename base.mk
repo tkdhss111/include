@@ -1,4 +1,5 @@
 FC            := caf 
+USR           := enecast
 DIR_PROJS     := /home/jma/1_Projects/
 DIR_TOOLS     := /home/jma/2_Tools/
 DIR_DATA      := /home/jma/3_Data/
