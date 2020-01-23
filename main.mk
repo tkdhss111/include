@@ -43,12 +43,12 @@ extra_clean:
 install:
 	$(MKDIR) $(DIR_BIN_INS)$(DIR_PROJ)
 	$(CP) $(DIR_BIN_RLS)$(NAME) $(DIR_BIN_INS)$(DIR_PROJ)$(NAME)
-	$(RM) /usr/bin/$(USR)_$(NAME)
-	$(LN) $(DIR_BIN_INS)$(DIR_PROJ)$(NAME) /usr/bin/$(USR)_$(NAME)
-	chown jma:jma $(DIR_BIN_INS)$(DIR_PROJ)$(NAME)
-	chown jma:jma /usr/bin/$(USR)_$(NAME)
+	$(RM) /usr/bin/$(ID_PROG)_$(NAME)
+	$(LN) $(DIR_BIN_INS)$(DIR_PROJ)$(NAME) /usr/bin/$(ID_PROG)_$(NAME)
+	chown $(USR):$(USR) $(DIR_BIN_INS)$(DIR_PROJ)$(NAME)
+	chown $(USR):$(USR) /usr/bin/$(ID_PROG)_$(NAME)
 
 uninstall:
 	$(RM) $(DIR_BIN_INS)$(DIR_PROJ)$(NAME)
 	find $(DIR_BIN_INS) -type d -empty -delete
-	$(RM) /usr/bin/$(USR)_$(NAME)
+	$(RM) /usr/bin/$(ID_PROG)_$(NAME)

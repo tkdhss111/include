@@ -1,10 +1,11 @@
 FC            := caf
-USR           := enecast
+ID_PROG       := enecast
+USR           := jma
 DIR_PROJS     := /home/jma/1_Projects/
 DIR_TOOLS     := /home/jma/2_Tools/
 DIR_DATA      := /home/jma/3_Data/
-DIR_BIN_INS   := /usr/bin/$(USR)/$(FC)/
-DIR_LIB_INS   := /usr/lib/$(USR)/$(FC)/
+DIR_BIN_INS   := /usr/bin/$(ID_PROG)/$(FC)/
+DIR_LIB_INS   := /usr/lib/$(ID_PROG)/$(FC)/
 DIR_BIN_RLS   := $(DIR_PROJS)$(DIR_PROJ)bin/Release/
 DIR_BIN_DBG   := $(DIR_PROJS)$(DIR_PROJ)bin/Debug/
 DIR_LIB_RLS   := $(DIR_PROJS)$(DIR_PROJ)lib/Release/
