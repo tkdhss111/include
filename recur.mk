@@ -1,35 +1,49 @@
-all: prep release
+.PHONY : default
+default: prep release lib
 
-static:
+.PHONY : lib
+lib:
 	for d in $(DIRS); \
 	do \
-		make static --directory=$$d; \
+		make lib --directory=$$d; \
 	done
 
+.PHONY : release
 release:
 	for d in $(DIRS); \
 	do \
 		make release --directory=$$d; \
 	done
 
+.PHONY : debug
+release:
+	for d in $(DIRS); \
+	do \
+		make debug --directory=$$d; \
+	done
+
+.PHONY : prep
 prep:
 	for d in $(DIRS); \
 	do \
 		make prep --directory=$$d; \
 	done
 
+.PHONY : clean
 clean:
 	for d in $(DIRS); \
 	do \
 		make clean --directory=$$d; \
 	done
 
+.PHONY : install
 install:
 	for d in $(DIRS); \
 	do \
 		make install --directory=$$d; \
 	done
 
+.PHONY : uninstall
 uninstall:
 	for d in $(DIRS); \
 	do \
