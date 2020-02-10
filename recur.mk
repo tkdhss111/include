@@ -1,5 +1,11 @@
 all: prep release
 
+static:
+	for d in $(DIRS); \
+	do \
+		make static --directory=$$d; \
+	done
+
 release:
 	for d in $(DIRS); \
 	do \
