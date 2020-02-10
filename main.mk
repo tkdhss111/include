@@ -9,7 +9,7 @@ DFLAGS += $(CFLAGS) $(addprefix -I, $(DIRS_INC_DBG))
 
 default: release 
 
-static: prep release $(PATH_OBJS_RLS)
+lib: prep release $(PATH_OBJS_RLS)
 	$(AR) $(AARGS) $(DIR_PROJS)$(DIR_PROJ)lib$(DIR_PROJ:/=.a) $(addprefix $(DIR_OBJ_RLS), $(NAME)_mo.o) && \
 	$(AR) t $(DIR_PROJS)$(DIR_PROJ)lib$(DIR_PROJ:/=.a)
 
