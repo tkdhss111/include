@@ -16,7 +16,7 @@ release:
 	done
 
 .PHONY : debug
-release:
+debug:
 	for d in $(DIRS); \
 	do \
 		make debug --directory=$$d; \
