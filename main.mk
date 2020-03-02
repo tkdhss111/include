@@ -16,13 +16,13 @@ lib: lib_release lib_debug
 
 .PHONY : lib_release
 lib_release: release $(PATH_OBJS_RLS)
-	$(AR) $(AARGS) $(DIR_LIB_RLS)lib$(DIR_PROJ:/=.a) $(filter-out %/main.o, $(PATH_OBJS_RLS)) && \
+	$(AR) $(AARGS) $(DIR_LIB_RLS)lib$(DIR_PROJ:/=.a) $(filter-out $(DIR_OBJ_RLS)main.o $(DIR_OBJ_RLS)cli_%, $(PATH_OBJS_RLS)) && \
 	$(CP) $(wildcard $(DIR_OBJ_RLS)*mod) $(DIR_LIB_RLS) && \
 	$(AR) t $(DIR_LIB_RLS)lib$(DIR_PROJ:/=.a)
 
 .PHONY : lib_debug
 lib_debug: debug $(PATH_OBJS_DBG)
-	$(AR) $(AARGS) $(DIR_LIB_DBG)lib$(DIR_PROJ:/=.a) $(filter-out %/main.o, $(PATH_OBJS_DBG)) && \
+	$(AR) $(AARGS) $(DIR_LIB_DBG)lib$(DIR_PROJ:/=.a) $(filter-out $(DIR_OBJ_DBG)main.o $(DIR_OBJ_DBG)cli_%, $(PATH_OBJS_DBG)) && \
 	$(CP) $(wildcard $(DIR_OBJ_DBG)*mod) $(DIR_LIB_DBG) && \
 	$(AR) t $(DIR_LIB_DBG)lib$(DIR_PROJ:/=.a)
 
