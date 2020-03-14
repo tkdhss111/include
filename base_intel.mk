@@ -25,7 +25,7 @@ AARGS         := -rcsv
 CFLAGS        := -Dintel -fpp -mcmodel=large -pthread
 #CFLAGS += -coarray=shared -coarray-num-images=2
 RFLAGS        := -O3 -march=native -Drelease -parallel
-DFLAGS        := -g -Ddebug
+DFLAGS        := -g -debug full -Ddebug
 LFLAGS        := -static-intel 
 EXT           := f90
 OP_DIR_OBJ    := -module
