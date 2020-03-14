@@ -31,14 +31,14 @@ release: prep_release $(PATH_OBJS_RLS)
 	$(FC) $(RFLAGS) -s -o $(PATH_BIN_RLS) $(PATH_OBJS_RLS) $(LIBS_RLS)
 
 $(DIR_OBJ_RLS)%.o: %.$(EXT)
-	$(FC) $(RFLAGS) -J$(DIR_OBJ_RLS) -o $@ -c $<
+	$(FC) $(RFLAGS) $(OP_DIR_OBJ)$(DIR_OBJ_RLS) -o $@ -c $<
 
 .PHONY : debug
 debug: prep_debug $(PATH_OBJS_DBG)
 	$(FC) $(DFLAGS) -o $(PATH_BIN_DBG) $(PATH_OBJS_DBG) $(LIBS_DBG)
 
 $(DIR_OBJ_DBG)%.o: %.$(EXT)
-	$(FC) $(DFLAGS) -J$(DIR_OBJ_DBG) -o $@ -c $<
+	$(FC) $(DFLAGS) $(OP_DIR_OBJ)$(DIR_OBJ_DBG) -o $@ -c $<
 
 .PHONY : debugrun
 debugrun: prep_debug debug
