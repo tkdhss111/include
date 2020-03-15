@@ -1,16 +1,30 @@
-DIR_MKL     :=/opt/intel/mkl/
-DIR_LIB_MKL :=${DIR_MKL}lib/intel64_lin/
-DIR_INC_MKL :=${DIR_MKL}include/
+#============================================================================
+# Intel Math Kernel Library for ifort (Parallel Studio XE2020)
+#----------------------------------------------------------------------------
+#
+#
+# For the library links, check the following website.
+#
+# Intel® Math Kernel Library Link Line Advisor 
+# URL: https://software.intel.com/en-us/articles/intel-mkl-link-line-advisor
+#
+# Created by: Hisashi Takeda, Ph.D. on: March 15, 2020.
+#----------------------------------------------------------------------------
 
-DIR_LIB_RLS +=${DIR_LIB_MKL}
-DIR_LIB_DBG +=${DIR_LIB_MKL}
+MKLROOT :=/opt/intel/mkl
 
-DIRS_INC_RLS +=${DIR_INC_MKL} ${DIR_INC_MKL}intel64/lp64
-DIRS_INC_DBG +=${DIR_INC_MKL} ${DIR_INC_MKL}intel64/lp64
+DIRS_INC_RLS +=${MKLROOT}/include/intel64/lp64 ${MKLROOT}/include
+DIRS_INC_DBG +=${MKLROOT}/include/intel64/lp64 ${MKLROOT}/include
 
-CFLAGS +=-lmkl_lapack95_lp64
-CFLAGS +=-lmkl_blas95_lp64
-CFLAGS +=-Wl,--start-group ${DIR_LIB_MKL}libmkl_intel_lp64.a
-CFLAGS +=${DIR_LIB_MKL}libmkl_intel_thread.a
-CFLAGS +=${DIR_LIB_MKL}libmkl_core.a -Wl,--end-group -liomp5 -lpthread -lm
+LIBS_RLS +=${MKLROOT}/lib/intel64/libmkl_blas95_lp64.a
+LIBS_RLS +=${MKLROOT}/lib/intel64/libmkl_lapack95_lp64.a -Wl,--start-group 
+LIBS_RLS +=${MKLROOT}/lib/intel64/libmkl_intel_lp64.a
+LIBS_RLS +=${MKLROOT}/lib/intel64/libmkl_intel_thread.a
+LIBS_RLS +=${MKLROOT}/lib/intel64/libmkl_core.a -Wl,--end-group -liomp5 -lpthread -lm -ldl
+
+LIBS_DBG +=${MKLROOT}/lib/intel64/libmkl_blas95_lp64.a
+LIBS_DBG +=${MKLROOT}/lib/intel64/libmkl_lapack95_lp64.a -Wl,--start-group 
+LIBS_DBG +=${MKLROOT}/lib/intel64/libmkl_intel_lp64.a
+LIBS_DBG +=${MKLROOT}/lib/intel64/libmkl_intel_thread.a
+LIBS_DBG +=${MKLROOT}/lib/intel64/libmkl_core.a -Wl,--end-group -liomp5 -lpthread -lm -ldl
 
