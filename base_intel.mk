@@ -22,7 +22,7 @@ RM            := rm -f
 MKDIR         := @mkdir -p
 AR            := xiar
 AARGS         := -rcsv
-CFLAGS        := -Dintel -fpp -mcmodel=large -pthread -heap-arrays -coarray=shared
+CFLAGS        := -Dintel -fpp -mcmodel=large -pthread -heap-arrays
 RFLAGS        := -O3 -march=native -Drelease -parallel
 DFLAGS        := -g -debug full -Ddebug
 LFLAGS        := -static-intel 
