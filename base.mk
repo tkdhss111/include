@@ -1,1 +1,1 @@
-base_intel.mk
+base_gfortran.mk

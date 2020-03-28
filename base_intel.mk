@@ -28,3 +28,6 @@ DFLAGS        := -g -debug full -Ddebug
 LFLAGS        := -static-intel 
 EXT           := f90
 OP_DIR_OBJ    := -module
+
+# intel
+#source /opt/intel/compilers_and_libraries/linux/bin/compilervars.sh -arch intel64 -platform linux
