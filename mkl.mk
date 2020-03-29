@@ -1,1 +1,1 @@
-mkl_intel.mk
+mkl_gfortran.mk
