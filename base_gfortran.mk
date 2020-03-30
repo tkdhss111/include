@@ -1,5 +1,6 @@
 ID_PROG       := enecast
 USR           := jma
+NAME_DBG      := debug
 DIR_PROJS     := /home/jma/1_Projects/
 DIR_TOOLS     := /home/jma/2_Tools/
 DIR_DATA      := /home/jma/3_Data/
@@ -12,7 +13,7 @@ DIR_LIB_DBG   := $(DIR_PROJS)$(DIR_PROJ)lib/Debug/
 DIR_OBJ_RLS   := $(DIR_PROJS)$(DIR_PROJ)obj/Release/$(NAME)/
 DIR_OBJ_DBG   := $(DIR_PROJS)$(DIR_PROJ)obj/Debug/$(NAME)/
 PATH_BIN_RLS  := $(addprefix $(DIR_BIN_RLS), $(NAME))
-PATH_BIN_DBG  := $(addprefix $(DIR_BIN_DBG), $(NAME))
+PATH_BIN_DBG  := $(addprefix $(DIR_BIN_DBG), $(NAME_DBG))
 
 FC            := caf
 CC            := gcc
