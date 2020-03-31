@@ -42,17 +42,19 @@ $(DIR_OBJ_DBG)%.o: %.$(EXT)
 
 .PHONY : debugrun
 debugrun: prep_debug debug
-	$(DIR_PROJS)$(DIR_PROJ)/bin/Debug/$(NAME_DBG)
+	debug/$(NAME_DBG)
 
 .PHONY : prep
 prep: prep_release prep_debug
 
 .PHONY : prep_release
 prep_release:
+	$(RM)r $(DIR_OBJ_RLS) $(DIR_BIN_RLS) $(DIR_LIB_RLS)
 	$(MKDIR) $(DIR_OBJ_RLS) $(DIR_BIN_RLS) $(DIR_LIB_RLS)
 
 .PHONY : prep_debug
 prep_debug:
+	$(RM)r $(DIR_OBJ_DBG) $(DIR_BIN_DBG) $(DIR_LIB_DBG)
 	$(MKDIR) $(DIR_OBJ_DBG) $(DIR_BIN_DBG) $(DIR_LIB_DBG)
 
 .PHONY : clean
