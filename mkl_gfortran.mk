@@ -10,11 +10,11 @@
 # Intel® Math Kernel Library Link Line Advisor 
 # URL: https://software.intel.com/en-us/articles/intel-mkl-link-line-advisor
 #
-# Created by: Hisashi Takeda, Ph.D. on: March 15, 2020.
+# Created by: Hisashi Takeda, Ph.D. on: April 02, 2020.
 #---------------------------------------------------------------------------
 
 MKLROOT := /opt/intel/mkl
-F95ROOT := /home/jma/2_Tools/mkl
+F95ROOT := ~/2_Tools/mkl
 
 LIBS_RLS +=${F95ROOT}/lib/intel64/libmkl_blas95_lp64.a ${F95ROOT}/lib/intel64/libmkl_lapack95_lp64.a -Wl,--start-group ${MKLROOT}/lib/intel64/libmkl_gf_lp64.a ${MKLROOT}/lib/intel64/libmkl_gnu_thread.a ${MKLROOT}/lib/intel64/libmkl_core.a -Wl,--end-group -lgomp -lpthread -lm -ldl
 
