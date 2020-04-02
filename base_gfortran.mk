@@ -1,9 +1,9 @@
-USR           := denko
+USR           := jma
 ID_PROG       := enecast
 NAME_DBG      := debug
-DIR_PROJS     := ~/1_Projects/
-DIR_TOOLS     := ~/2_Tools/
-DIR_DATA      := ~/3_Data/
+DIR_PROJS     := $(USR)/1_Projects/
+DIR_TOOLS     := $(USR)/2_Tools/
+DIR_DATA      := $(USR)/3_Data/
 DIR_BIN_INS   := /usr/bin/taketa_gfortran/$(ID_PROG)/
 DIR_LIB_INS   := /usr/lib/taketa_gfortran/$(ID_PROG)/
 DIR_BIN_RLS   := $(DIR_PROJS)$(DIR_PROJ)bin/Release/
