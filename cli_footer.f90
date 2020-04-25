@@ -98,8 +98,9 @@ subroutine print_version (this, date_time)
   print '(a)', 'Executable file: '//trim(this%exe)
   print '(a)', 'Version '//trim(this%version)
   print '(a)', 'Created by '// trim(this%author)
-  print '(a)', date_time(1:4)//' '//trim(this%copyright)
+  print '(a)', '2011 '//trim(this%copyright)
   print '(a)', repeat('=', 80)
+  print '(a)', trim(date_time)
 
   stop
 
