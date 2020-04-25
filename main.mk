@@ -42,7 +42,7 @@ $(DIR_OBJ_DBG)%.o: %.$(EXT)
 
 .PHONY : debugrun
 debugrun: prep_debug debug
-	debug/$(NAME_DBG)
+	$(DIR_PROJS)$(DIR_PROJ)bin/Debug/$(NAME)
 
 .PHONY : prep
 prep: prep_release prep_debug
