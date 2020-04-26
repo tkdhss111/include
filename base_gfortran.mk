@@ -1,6 +1,5 @@
 USR           := jma
 ID_PROG       := enecast
-NAME_DBG      := debug
 DIR_PROJS     := /home/$(USR)/1_Projects/
 DIR_TOOLS     := /home/$(USR)/2_Tools/
 DIR_DATA      := /home/$(USR)/3_Data/
@@ -8,14 +7,12 @@ DIR_BIN_INS   := /usr/bin/taketa_gfortran/$(ID_PROG)/
 DIR_LIB_INS   := /usr/lib/taketa_gfortran/$(ID_PROG)/
 DIR_BIN_RLS   := $(DIR_PROJS)$(DIR_PROJ)bin/Release/
 DIR_BIN_DBG   := $(DIR_PROJS)$(DIR_PROJ)bin/Debug/
-#DIR_BIN_DBG   := $(DIR_PROJS)$(DIR_PROJ)bin/Debug/
-#DIR_BIN_DBG   := ./debug/
 DIR_LIB_RLS   := $(DIR_PROJS)$(DIR_PROJ)lib/Release/
 DIR_LIB_DBG   := $(DIR_PROJS)$(DIR_PROJ)lib/Debug/
 DIR_OBJ_RLS   := $(DIR_PROJS)$(DIR_PROJ)obj/Release/$(NAME)/
 DIR_OBJ_DBG   := $(DIR_PROJS)$(DIR_PROJ)obj/Debug/$(NAME)/
 PATH_BIN_RLS  := $(addprefix $(DIR_BIN_RLS), $(NAME))
-PATH_BIN_DBG  := $(addprefix $(DIR_BIN_DBG), $(NAME_DBG))
+PATH_BIN_DBG  := $(addprefix $(DIR_BIN_DBG), $(NAME))
 
 FC            := caf
 CC            := gcc

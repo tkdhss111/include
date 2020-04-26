@@ -35,7 +35,8 @@ $(DIR_OBJ_RLS)%.o: %.$(EXT)
 
 .PHONY : debug
 debug: prep_debug $(PATH_OBJS_DBG)
-	$(FC) $(DFLAGS) -o $(PATH_BIN_DBG) $(PATH_OBJS_DBG) $(LIBS_DBG)
+	$(FC) $(DFLAGS) -o $(PATH_BIN_DBG) $(PATH_OBJS_DBG) $(LIBS_DBG) && \
+	ln -s $(PATH_BIN_DBG) ~/gdb/fortran_debug
 
 $(DIR_OBJ_DBG)%.o: %.$(EXT)
 	$(FC) $(DFLAGS) $(OP_DIR_OBJ) $(DIR_OBJ_DBG) -o $@ -c $<
@@ -53,7 +54,7 @@ prep_release:
 
 .PHONY : prep_debug
 prep_debug:
-	$(MKDIR) $(DIR_OBJ_DBG) $(DIR_BIN_DBG) $(DIR_LIB_DBG)
+	$(MKDIR) $(DIR_OBJ_DBG) $(DIR_BIN_DBG) $(DIR_LIB_DBG) ~/gdb/
 
 .PHONY : clean
 clean: clean_release clean_debug
