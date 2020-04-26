@@ -36,7 +36,7 @@ $(DIR_OBJ_RLS)%.o: %.$(EXT)
 .PHONY : debug
 debug: prep_debug $(PATH_OBJS_DBG)
 	$(FC) $(DFLAGS) -o $(PATH_BIN_DBG) $(PATH_OBJS_DBG) $(LIBS_DBG) && \
-	ln -s $(PATH_BIN_DBG) ~/gdb/fortran_debug
+	ln -sf $(PATH_BIN_DBG) ~/gdb/fortran_debug
 
 $(DIR_OBJ_DBG)%.o: %.$(EXT)
 	$(FC) $(DFLAGS) $(OP_DIR_OBJ) $(DIR_OBJ_DBG) -o $@ -c $<
