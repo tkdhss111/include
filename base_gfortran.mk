@@ -19,7 +19,7 @@ CC            := gcc
 CP            := cp
 LN            := ln -s
 RM            := rm -f
-MKDIR         := @mkdir -p
+MKDIR         := mkdir -p
 AR            := ar
 AARGS         := -rcsv
 CFLAGS        := -cpp -ffree-line-length-none -fopenmp -fdec-math -mcmodel=large -pthread

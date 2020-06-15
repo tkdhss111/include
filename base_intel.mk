@@ -21,7 +21,7 @@ CC            := ic
 CP            := cp
 LN            := ln -s
 RM            := rm -f
-MKDIR         := @mkdir -p
+MKDIR         := mkdir -p
 AR            := xiar
 AARGS         := -rcsv
 CFLAGS        := -Dintel -fpp -mcmodel=large -pthread -heap-arrays
