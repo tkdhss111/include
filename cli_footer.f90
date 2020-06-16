@@ -13,7 +13,9 @@ module subroutine get_character (str, i_arg)
   call get_command_argument (i_arg, arg, status = status)
   if (status /= 0) print *, 'Error', status, 'on argument', i_arg
   str = trim(arg)
+#ifdef debug
   print '(a, i2, a)', 'Arg', i_arg / 2, ': '//trim(str)
+#endif
 
 end subroutine
 
