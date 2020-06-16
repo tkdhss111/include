@@ -10,12 +10,10 @@ module subroutine get_character (str, i_arg)
   integer     , intent(inout) :: i_arg
 
   i_arg = i_arg + 1
-  call get_command_argument (i_arg, arg, status = status)
-  if (status /= 0) print *, 'Error', status, 'on argument', i_arg
+  call get_command_argument ( i_arg, arg, status = status )
+  if ( status /= 0 ) print *, 'Error', status, 'on argument', i_arg
   str = trim(arg)
-#ifdef debug
-  print '(a, i2, a)', 'Arg', i_arg / 2, ': '//trim(str)
-#endif
+  !print '(a, i2, a)', 'Arg', i_arg / 2, ': '//trim(str)
 
 end subroutine
 
@@ -25,10 +23,10 @@ module subroutine get_integer (ival, i_arg)
   integer, intent(inout) :: i_arg
 
   i_arg = i_arg + 1
-  call get_command_argument (i_arg, arg, status = status)
-  if (status /= 0) print *, 'Error', status, 'on argument', i_arg
+  call get_command_argument ( i_arg, arg, status = status )
+  if ( status /= 0 ) print *, 'Error', status, 'on argument', i_arg
   read (arg, *) ival
-  print '(a, i2, a, i0)', 'Arg', i_arg / 2, ': ', ival
+  !print '(a, i2, a, i0)', 'Arg', i_arg / 2, ': ', ival
 
 end subroutine
 
@@ -38,10 +36,10 @@ module subroutine get_real (rval, i_arg)
   integer, intent(inout) :: i_arg
 
   i_arg = i_arg + 1
-  call get_command_argument (i_arg, arg, status = status)
-  if (status /= 0) print *, 'Error', status, 'on argument', i_arg
+  call get_command_argument ( i_arg, arg, status = status )
+  if ( status /= 0 ) print *, 'Error', status, 'on argument', i_arg
   read (arg, *) rval
-  print '(a, i2, a, g0)', 'Arg', i_arg / 2, ': ', rval
+  !print '(a, i2, a, g0)', 'Arg', i_arg / 2, ': ', rval
 
 end subroutine
 
@@ -51,10 +49,10 @@ module subroutine get_logical (ox, i_arg)
   integer, intent(inout) :: i_arg
 
   i_arg = i_arg + 1
-  call get_command_argument (i_arg, arg, status = status)
-  if (status /= 0) print *, 'Error', status, 'on argument', i_arg
+  call get_command_argument ( i_arg, arg, status = status )
+  if ( status /= 0 ) print *, 'Error', status, 'on argument', i_arg
   read (arg, '(l)') ox
-  print '(a, i2, a, l)', 'Arg', i_arg / 2, ': ', ox
+  !print '(a, i2, a, l)', 'Arg', i_arg / 2, ': ', ox
 
 end subroutine
 
