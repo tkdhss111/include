@@ -24,8 +24,9 @@ MKDIR         := mkdir -p
 AR            := ar
 AARGS         := -rcsv
 CFLAGS        := -cpp -ffree-line-length-none -fopenmp -fdec-math -mcmodel=large -pthread
-RFLAGS        := -O3 -march=native -Drelease -Wall -Wextra -Wno-maybe-uninitialized
-DFLAGS        := -g -Wall -Wextra -fcheck=all -fcheck=bounds -Ddebug -Wno-unused -Wno-maybe-uninitialized -Wno-uninitialized
+RFLAGS        := -O3 -Drelease -Wall -Wextra -Wno-maybe-uninitialized
+DFLAGS        := -g -Wall -Wextra -fcheck=all -fcheck=bounds -Ddebug -Wno-maybe-uninitialized -Wno-uninitialized
+#DFLAGS        := -g -Wall -Wextra -fcheck=all -fcheck=bounds -Ddebug -Wno-unused -Wno-maybe-uninitialized -Wno-uninitialized
 LFLAGS        := -static -s
 EXT           := f90
 OP_DIR_OBJ    := -J# gfortran
