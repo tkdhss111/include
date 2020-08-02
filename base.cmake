@@ -5,13 +5,13 @@ enable_language ( Fortran )
 enable_testing ()
 
 if ( CMAKE_Fortran_COMPILER_ID MATCHES "GNU" )
-  set ( dialect "-cpp -ffree-line-length-none -Dlinux -fcoarray=lib" )
-  set ( bounds "-fbounds-check -Ddebug -fcoarray=lib")
+  set ( dialect "-cpp -ffree-line-length-none -fopenmp -fdec-math -mcmodel=large -pthread -Dlinux -fcoarray=lib" )
+  set ( bounds "-fbounds-check -Ddebug" )
 endif ()
 
 if ( CMAKE_Fortran_COMPILER_ID MATCHES "Intel" )
-  set ( dialect "-cpp -free -Dlinux -Dintel -coarray=shared" )
-  set ( bounds "-check bounds -Ddebug -coarray=shared" )
+  set ( dialect "-fpp -free -Dlinux -Dintel -parallel -mcmodel=large" )
+  set ( bounds "-check bounds -Ddebug" )
 endif ()
 
 if ( CMAKE_Fortran_COMPILER_ID MATCHES "PGI" )

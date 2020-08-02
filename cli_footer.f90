@@ -51,7 +51,7 @@ module subroutine get_logical (ox, i_arg)
   i_arg = i_arg + 1
   call get_command_argument ( i_arg, arg, status = status )
   if ( status /= 0 ) print *, 'Error', status, 'on argument', i_arg
-  read (arg, '(l)') ox
+  read ( arg, * ) ox
   !print '(a, i2, a, l)', 'Arg', i_arg / 2, ': ', ox
 
 end subroutine
@@ -75,16 +75,20 @@ subroutine print_help (this)
   class(cmd_ty), intent(in) :: this
   integer j
 
-  print '(a)', ''
-  print '(a)', repeat('=', 80)
-  print '(a)', trim(cmd%title)
-  print '(a)', repeat('-', 80)
+  if ( this_image() == 1 ) then
 
-  do j = 1, this%n_usage
-    print *, trim(this%usage(j))
-  end do
+    print '(a)', ''
+    print '(a)', repeat('=', 80)
+    print '(a)', trim(cmd%title)
+    print '(a)', repeat('-', 80)
 
-  print '(a)', repeat('=', 80)
+    do j = 1, this%n_usage
+      print *, trim(this%usage(j))
+    end do
+
+    print '(a)', repeat('=', 80)
+
+  end if
 
   stop
 
