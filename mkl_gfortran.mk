@@ -16,9 +16,17 @@
 MKLROOT := /opt/intel/mkl
 F95ROOT := $(DIR_TOOLS)mkl
 
-LIBS_RLS +=${F95ROOT}/lib/intel64/libmkl_blas95_lp64.a ${F95ROOT}/lib/intel64/libmkl_lapack95_lp64.a -Wl,--start-group ${MKLROOT}/lib/intel64/libmkl_gf_lp64.a ${MKLROOT}/lib/intel64/libmkl_gnu_thread.a ${MKLROOT}/lib/intel64/libmkl_core.a -Wl,--end-group -lgomp -lpthread -lm -ldl
+LIBS_RLS +=${F95ROOT}/lib/intel64/libmkl_blas95_lp64.a 
+LIBS_RLS +=${F95ROOT}/lib/intel64/libmkl_lapack95_lp64.a -Wl,--start-group 
+LIBS_RLS +=${MKLROOT}/lib/intel64/libmkl_gf_lp64.a 
+LIBS_RLS +=${MKLROOT}/lib/intel64/libmkl_gnu_thread.a 
+LIBS_RLS +=${MKLROOT}/lib/intel64/libmkl_core.a -Wl,--end-group -lgomp -lpthread -lm -ldl
 
-LIBS_DBG +=${F95ROOT}/lib/intel64/libmkl_blas95_lp64.a ${F95ROOT}/lib/intel64/libmkl_lapack95_lp64.a -Wl,--start-group ${MKLROOT}/lib/intel64/libmkl_gf_lp64.a ${MKLROOT}/lib/intel64/libmkl_gnu_thread.a ${MKLROOT}/lib/intel64/libmkl_core.a -Wl,--end-group -lgomp -lpthread -lm -ldl
+LIBS_DBG +=${F95ROOT}/lib/intel64/libmkl_blas95_lp64.a 
+LIBS_DBG +=${F95ROOT}/lib/intel64/libmkl_lapack95_lp64.a -Wl,--start-group 
+LIBS_DBG +=${MKLROOT}/lib/intel64/libmkl_gf_lp64.a 
+LIBS_DBG +=${MKLROOT}/lib/intel64/libmkl_gnu_thread.a 
+LIBS_DBG +=${MKLROOT}/lib/intel64/libmkl_core.a -Wl,--end-group -lgomp -lpthread -lm -ldl
 
 DIRS_INC_RLS +=$(F95ROOT)/include/intel64/lp64 $(MKLROOT)/include
 DIRS_INC_DBG +=$(F95ROOT)/include/intel64/lp64 $(MKLROOT)/include
